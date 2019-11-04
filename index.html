@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Sentiment Analysis Web App</title>
+        <meta charset="utf-8">
+        <meta name="viewport"  content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script>
+         "use strict";
+         function submitForm(oFormElement) {
+             var xhr = new XMLHttpRequest();     
+             xhr.onload = function() {
+                var result = parseFloat(xhr.responseText);
+                var resultElement = document.getElementById('result');
+                resultElement.className = 'bg-success';
+                resultElement.innerHTML = 'Your house is worth: ';
+             }
+             xhr.open (oFormElement.method, oFormElement.action, true);  
+             var var_1 = document.getElementById('var_1');
+             var var_2 = document.getElementById('var_2');
+             var var_3 = document.getElementById('var_3');
+             var var_4 = document.getElementById('var_4');
+             var var_5 = document.getElementById('var_5');
+             var var_6 = document.getElementById('var_6');
+
+             xhr.send (
+                 var_1.value,
+                 var_2.value,
+                 var_3.value,
+                 var_4.value,
+                 var_5.value,
+                 var_6.value, );     
+             console.log(var_1.value, var_2.value)
+             return false;
+         }
+        </script>
+
+    </head>
+    <body>
+
+        <div class="container">
+            <h1>How much is your house worth?</h1>
+            <p>select the appropriate values to properly price and click submit to find out...</p>
+            <form method="POST"
+                  action="https://wyv0q1nlsa.execute-api.us-west-2.amazonaws.com/prod"
+                  onsubmit="return submitForm(this);" >                     <!-- HERE IS WHERE YOU NEED TO ENTER THE API URL -->
+                <select id="var_1">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <select id="var_2">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <select id="var_3">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <select id="var_4">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <select id="var_5">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+
+                <select id="var_6">
+                    <option value="volvo">Volvo</option>
+                    <option value="saab">Saab</option>
+                    <option value="opel">Opel</option>
+                    <option value="audi">Audi</option>
+                </select>
+                
+                <br></br>
+
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+            <h1 class="bg-success" id="result"></h1>
+        </div>
+    </body>
+</html>
